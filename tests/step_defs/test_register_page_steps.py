@@ -74,6 +74,7 @@ def open_page(browser):
 
 @when(parse_num('the user type email "{email:length}"'))
 def length_email(browser):
+    pass
     utile = Length(browser)
     utile.get_length_name(15)
 

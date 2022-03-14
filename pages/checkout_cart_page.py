@@ -8,6 +8,7 @@ class CheckOutCartPage_LogOutPage:
 
     #locators
     ACCOUNT_INFO_NAME = (By.CSS_SELECTOR, 'div[data-testid="account-info-logged-true"]')
+    DATA_FEMEI = (By.CSS_SELECTOR, ".empty__Block-sc-1mx1otu-4.jIECtA ul li:nth-child(1)")
 
     def __init__(self, browser):
         self.browser = browser
@@ -25,9 +26,9 @@ class CheckOutCartPage_LogOutPage:
 
     def log_out(self):
         #WebDriverWait(self.browser, 5).until(EC.element_to_be_clickable(*self.DATA_FEMEI)).click()
-        DATA_FEMEI = (By.CSS_SELECTOR, ".empty__Block-sc-1mx1otu-4.jIECtA ul li:nth-child(1)")
+        #DATA_FEMEI = (By.CSS_SELECTOR, ".empty__Block-sc-1mx1otu-4.jIECtA ul li:nth-child(1)")
         wait = WebDriverWait(self.browser, 5)
-        element = wait.until(EC.element_to_be_clickable(DATA_FEMEI))
+        element = wait.until(EC.element_to_be_clickable(self.DATA_FEMEI))
         element.click()
 
 
