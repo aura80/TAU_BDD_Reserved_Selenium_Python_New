@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
-class CheckoutCartPage:
+class CheckOutCartPage_LogOutPage:
     #URL
     URL = "https://www.reserved.com/ro/ro/checkout/cart/"
 
@@ -19,11 +19,16 @@ class CheckoutCartPage:
             print("Url after create account is not ok")
 
     def check_firstname(self, firstname):
-        ACCOUNT_INFO_NAME = (By.CSS_SELECTOR, 'div[data-testid="account-info-logged-true"]')
-        assert self.browser.find_element(By.CSS_SELECTOR, 'div[data-testid="account-info-logged-true"]').text == firstname, "Firstname is not ok"
         wait = WebDriverWait(self.browser, 5)
-        element = wait.until(EC.element_to_be_clickable(ACCOUNT_INFO_NAME))
+        wait.until(EC.element_to_be_clickable(self.ACCOUNT_INFO_NAME))
+        assert self.browser.find_element(*self.ACCOUNT_INFO_NAME).text == firstname, "Firstname is not ok"
 
+    def log_out(self):
+        #WebDriverWait(self.browser, 5).until(EC.element_to_be_clickable(*self.DATA_FEMEI)).click()
+        DATA_FEMEI = (By.CSS_SELECTOR, ".empty__Block-sc-1mx1otu-4.jIECtA ul li:nth-child(1)")
+        wait = WebDriverWait(self.browser, 5)
+        element = wait.until(EC.element_to_be_clickable(DATA_FEMEI))
+        element.click()
 
 
 

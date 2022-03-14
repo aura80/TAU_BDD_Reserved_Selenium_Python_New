@@ -1,10 +1,8 @@
 from functools import partial
 
 from pytest_bdd import scenarios, when, then, given, parsers
-from pages.register_page import RegisterPage
-from pages.checkout_cart_page import CheckoutCartPage
-from pages.logout_page import LogOutPage
-from pages.utile import Utils
+from pages.register_page import RegisterPage, Length
+from pages.checkout_cart_page import CheckOutCartPage_LogOutPage
 
 # Scenarios
 scenarios('../features/test_register_page.feature')
@@ -49,19 +47,19 @@ def click_create_account_button(browser):
 
 @then('the user is redirected to checkout')
 def check_user_is_redirected_to_checkout(browser):
-    checkout_cart_page = CheckoutCartPage(browser)
+    checkout_cart_page = CheckOutCartPage_LogOutPage(browser)
     checkout_cart_page.check_current_url()
 
 
 @then(parsers.cfparse('the user is logged in with {firstname}'))
 def check_user_is_logged_in(browser, firstname):
-    checkout_cart_page = CheckoutCartPage(browser)
+    checkout_cart_page = CheckOutCartPage_LogOutPage(browser)
     checkout_cart_page.check_firstname(firstname)
 
 
 @then('the user is logged out')
 def user_is_redirected_to_checkout(browser):
-    checkout_cart_page = LogOutPage(browser)
+    checkout_cart_page = CheckOutCartPage_LogOutPage(browser)
     checkout_cart_page.log_out()
 
 EXTRA_TYPES = {'length':int,}
@@ -70,13 +68,13 @@ parse_num = partial(parsers.cfparse, extra_types=EXTRA_TYPES)
 
 @given('open the register page')
 def open_page(browser):
-    utile = Utils(browser)
+    utile = RegisterPage(browser)
     utile.load_page()
 
 
 @when(parse_num('the user type email "{email:length}"'))
 def length_email(browser):
-    utile = Utils(browser)
+    utile = Length(browser)
     utile.get_length_name(15)
 
 

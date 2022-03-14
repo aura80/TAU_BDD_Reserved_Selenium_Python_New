@@ -24,6 +24,8 @@ class SearchTests:
         time.sleep(3)
 
         results = self.browser.find_elements(*self.LIST_PIJAMA_NAME)
+        for result in results:
+            print(result.text)
         titles = [result.text for result in results]
         #assert 'Pijama din două piese' in titles, "Pijama not in titles"
         return titles
