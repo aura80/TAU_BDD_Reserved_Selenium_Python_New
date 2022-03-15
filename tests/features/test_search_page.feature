@@ -1,9 +1,11 @@
 Feature: search in reserved website
 
-    Scenario: test search successfully
+    Scenario Outline: test search successfully
       Given open the page
-      When we wrote pijama "<pijama>" in the search field
+      When we wrote haine "<haine>" in the search field
 
       Examples: Products
+            | haine |
             | pijama |
-            | pijama |
+            | tricou |
+            | blugi |

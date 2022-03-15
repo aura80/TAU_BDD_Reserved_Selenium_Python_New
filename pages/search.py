@@ -9,7 +9,7 @@ class SearchTests:
     SEARCH_FIELD = (By.CSS_SELECTOR, '.input__InputText-sc-1mxde2b-0.ipFxa.search-box__StyledTextField-sc-19imnj1-0.hzAHJR')
     ACCEPT_COOKIES_BUTTON = (By.ID, 'cookiebotDialogOkButton')
     ALL_PIJAMAS = (By.CSS_SELECTOR, '.infinite-hits__StyledInfiniteHits-tiohae-0.eEWTYo')
-    LIST_PIJAMA_NAME = (By.CSS_SELECTOR, '.infinite-hits__StyledInfiniteHits-tiohae-0.eEWTYo .hit-item__Title-cz15ax-4.bDBiSH')
+    LIST_HAINE_NAME = (By.CSS_SELECTOR, '.infinite-hits__StyledInfiniteHits-tiohae-0.eEWTYo .hit-item__Title-cz15ax-4.bDBiSH')
 
     def __init__(self, browser):
         self.browser = browser
@@ -18,12 +18,12 @@ class SearchTests:
         self.browser.get(self.URL)
         self.browser.find_element(*self.ACCEPT_COOKIES_BUTTON).click()
 
-    def search_pijama_click(self, pijama):
+    def search_pijama_click(self, haine):
         self.browser.find_element(*self.SEARCH_CLICK).click()
-        self.browser.find_element(*self.SEARCH_FIELD).send_keys(pijama)
+        self.browser.find_element(*self.SEARCH_FIELD).send_keys(haine)
         time.sleep(3)
 
-        results = self.browser.find_elements(*self.LIST_PIJAMA_NAME)
+        results = self.browser.find_elements(*self.LIST_HAINE_NAME)
         for result in results:
             print(result.text)
         titles = [result.text for result in results]
