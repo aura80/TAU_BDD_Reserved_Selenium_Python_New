@@ -1,6 +1,6 @@
 Feature: register on reserved website
 
-    Scenario: test register unsuccessfully
+    Scenario Outline: test register unsuccessfully
         Given open the register page
         When adding email "<email>"
         And adding firstname "<firstname>"

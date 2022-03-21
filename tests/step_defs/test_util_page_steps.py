@@ -2,7 +2,7 @@ from pytest_bdd import scenarios, when, then, given, parsers
 from pages.util import AddCart
 
 # Scenarios
-scenarios('../features/test_util_page.feature')
+scenarios('../features/test_register_util_scenario.feature')
 
 @given('open the register page')
 def open_page(browser):

@@ -4,7 +4,6 @@ import re
 
 class AddCart:
     # URL
-    #URL = "https://www.reserved.com/ro/ro/new-in/girl?brick=SK_Denim_K&place=kids"
     URL = "https://www.reserved.com/ro/ro/5215g-80x/buty-rekreacyjne-k-2vpn-re"
 
     ACCEPT_COOKIES_BUTTON = (By.ID, 'cookiebotDialogOkButton')

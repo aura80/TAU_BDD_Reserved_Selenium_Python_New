@@ -2,7 +2,7 @@ from pytest_bdd import scenarios, when, then, given, parsers
 from pages.register_page import RegisterPage
 
 # Scenarios
-scenarios('../features/test_negative_page.feature')
+scenarios('../features/test_register_negative_scenario.feature')
 
 @given('open the register page')
 def open_page(browser):
